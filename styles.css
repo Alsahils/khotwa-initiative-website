@@ -1,0 +1,40 @@
+html[lang="en"] body {
+    font-family: 'Inter', sans-serif;
+}
+
+html[lang="ar"] body {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Marquee Animation */
+.animate-marquee {
+    animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+html[dir="rtl"] .animate-marquee {
+    animation: marquee-rtl 35s linear infinite;
+}
+
+@keyframes marquee-rtl {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(50%);
+    }
+}
