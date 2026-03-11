@@ -131,7 +131,7 @@ const translations = {
     }
 };
 
-let currentLang = localStorage.getItem('khotwa_lang') || 'en';
+let currentLang = localStorage.getItem('khotwa_lang') || 'ar';
 
 function renderPartners() {
     const grid = document.getElementById('partners-grid');
