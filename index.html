@@ -37,17 +37,12 @@
     class="bg-gray-50 text-gray-800 antialiased selection:bg-brand selection:text-white transition-colors duration-300">
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between py-3 md:py-4 items-center">
-                <div class="flex-shrink-0 flex items-center cursor-pointer">
-                    <img src="./image/khotwa-logo.jpeg" alt="--Khotwa Logo"
-                        class="h-16 md:h-20 lg:h-24 w-auto object-contain transition-all">
-                </div>
-
-
-
-                <div class="hidden md:flex gap-8 items-center">
+    <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl bg-white/80 backdrop-blur-xl z-50 rounded-[2rem] shadow-lg shadow-brand/5 border border-white/50 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]">
+        <div class="px-6 md:px-8">
+            <div class="flex justify-between items-center py-2 relative">
+                
+                <!-- Left Links -->
+                <div class="hidden md:flex gap-6 items-center flex-1">
                     <a href="#home" data-i18n="navHome"
                         class="text-gray-600 hover:text-brand font-semibold transition-colors">Home</a>
                     <a href="#about" data-i18n="navAbout"
@@ -58,7 +53,16 @@
                         class="text-gray-600 hover:text-brand font-semibold transition-colors">Partners</a>
                 </div>
 
-                <div class="hidden md:flex items-center gap-6">
+                <!-- Center Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center cursor-pointer mx-2 md:mx-4 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[60]">
+                    <a href="#home">
+                        <img src="./image/khotwa-logo.jpeg" alt="Khotwa Logo"
+                            class="h-10 md:h-14 w-auto object-contain transition-all mix-blend-multiply drop-shadow-sm hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="hidden md:flex items-center gap-4 flex-1 justify-end">
                     <!-- Language Toggle Desktop -->
                     <button onclick="toggleLanguage()"
                         class="flex items-center gap-2 text-gray-600 hover:text-brand font-semibold transition-colors">
@@ -66,16 +70,16 @@
                         <span id="lang-toggle-text">عربي</span>
                     </button>
                     <a href="register.html" data-i18n="navRegister"
-                        class="bg-brand text-white px-6 py-2.5 rounded-full font-semibold hover:bg-brand-light transition duration-300 shadow-lg shadow-brand/30 hover:shadow-xl transform hover:-translate-y-0.5">Register
+                        class="bg-brand text-white px-5 py-2 rounded-[1.5rem] font-semibold hover:bg-brand-light transition duration-300 shadow-md shadow-brand/20 hover:shadow-lg transform hover:-translate-y-0.5 text-sm">Register
                         Now</a>
                 </div>
 
                 <!-- Mobile menu tools -->
-                <div class="md:hidden flex items-center gap-4">
+                <div class="md:hidden flex items-center gap-3 flex-1 justify-end">
                     <!-- Language Toggle Mobile -->
                     <button onclick="toggleLanguage()"
-                        class="flex items-center gap-2 text-gray-600 hover:text-brand font-semibold transition-colors">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
+                        class="flex items-center gap-1 text-gray-600 hover:text-brand font-semibold transition-colors">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
                         <span id="lang-toggle-text-mobile" class="text-sm">عربي</span>
                     </button>
                     <button class="text-gray-600 hover:text-brand focus:outline-none">
@@ -97,7 +101,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
-                <div class="lg:col-span-6 text-center lg:text-start">
+                <div class="lg:col-span-6 text-center lg:text-start reveal">
                     <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
                         <span data-i18n="heroHeadline1">Try to be an </span>
                         <span data-i18n="heroHeadline2"
@@ -116,7 +120,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="lg:col-span-6 mt-16 lg:mt-0 relative">
+                <div class="lg:col-span-6 mt-16 lg:mt-0 relative reveal" style="transition-delay: 200ms;">
                     <div
                         class="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand/20 border-[6px] border-white transform lg:-rotate-2 hover:rotate-0 transition duration-500 hover:scale-[1.02]">
                         <img src="./image/2.jpeg" alt="Students in an office"
@@ -128,7 +132,7 @@
             </div>
 
             <!-- Redesigned Floating Stats Board -->
-            <div class="mt-20 lg:mt-32 relative z-20">
+            <div class="mt-20 lg:mt-32 relative z-20 reveal" style="transition-delay: 400ms;">
                 <div
                     class="bg-white/70 backdrop-blur-2xl border border-white isolate shadow-2xl shadow-brand/10 rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
                     <!-- Decorative blob inside card -->
@@ -197,7 +201,7 @@
     <section id="about" class="py-24 bg-gray-50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
-                <div class="order-2 lg:order-1 mt-16 lg:mt-0 relative group">
+                <div class="order-2 lg:order-1 mt-16 lg:mt-0 relative group reveal">
                     <div
                         class="absolute -inset-4 bg-brand/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-700">
                     </div>
@@ -207,7 +211,7 @@
                             class="w-full h-auto object-cover aspect-square md:aspect-[4/3]">
                     </div>
                 </div>
-                <div class="order-1 lg:order-2 text-start">
+                <div class="order-1 lg:order-2 text-start reveal" style="transition-delay: 200ms;">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-1 bg-brand rounded-full"></div>
                         <h2 data-i18n="aboutTag"
@@ -251,7 +255,7 @@
         </div>
 
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-3 mb-8">
+            <div class="inline-flex items-center gap-3 mb-8 reveal">
                 <div class="w-10 h-1 bg-white/50 rounded-full"></div>
                 <h2 data-i18n="goalsTag" class="text-white/80 font-bold uppercase tracking-wide text-2xl md:text-3xl">
                     Our Purpose
@@ -259,7 +263,7 @@
                 <div class="w-10 h-1 bg-white/50 rounded-full"></div>
             </div>
 
-            <div class="relative mt-8">
+            <div class="relative mt-8 reveal" style="transition-delay: 150ms;">
                 <i data-lucide="quote"
                     class="absolute -top-12 -start-8 w-24 h-24 text-white/10 transform rotate-180 rtl:rotate-0"></i>
                 <h3 data-i18n="goalsDesc"
@@ -272,7 +276,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-20 text-start relative z-10">
                 <!-- Goal 1 -->
                 <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 100ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="handshake" class="w-7 h-7"></i>
                     </div>
@@ -285,7 +289,7 @@
 
                 <!-- Goal 2 -->
                 <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 200ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="briefcase" class="w-7 h-7"></i>
                     </div>
@@ -298,7 +302,7 @@
 
                 <!-- Goal 3 -->
                 <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 300ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="lightbulb" class="w-7 h-7"></i>
                     </div>
@@ -310,7 +314,7 @@
 
                 <!-- Goal 4 -->
                 <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 400ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="compass" class="w-7 h-7"></i>
                     </div>
@@ -322,7 +326,7 @@
 
                 <!-- Goal 5 -->
                 <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 500ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="users" class="w-7 h-7"></i>
                     </div>
@@ -333,7 +337,7 @@
 
                 <!-- Goal 6 -->
                 <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 600ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="graduation-cap" class="w-7 h-7"></i>
                     </div>
@@ -367,7 +371,7 @@
             <div class="grid md:grid-cols-2 gap-8 lg:gap-12 text-start">
                 <!-- Story 1 -->
                 <div
-                    class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500">
+                    class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500 reveal" style="transition-delay: 150ms;">
                     <div class="absolute top-10 end-10 text-brand/10 group-hover:text-brand/20 transition duration-300">
                         <i data-lucide="quote" class="w-20 h-20 transform rotate-180 rtl:rotate-0"></i>
                     </div>
@@ -396,7 +400,7 @@
 
                 <!-- Story 2 -->
                 <div
-                    class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500">
+                    class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500 reveal" style="transition-delay: 300ms;">
                     <div class="absolute top-10 end-10 text-brand/10 group-hover:text-brand/20 transition duration-300">
                         <i data-lucide="quote" class="w-20 h-20 transform rotate-180 rtl:rotate-0"></i>
                     </div>
@@ -437,7 +441,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 relative z-10 w-full">
+            <div class="text-center mb-16 relative z-10 w-full reveal">
                 <div class="flex items-center justify-center gap-3 mb-4">
                     <div class="w-10 h-1 bg-brand rounded-full"></div>
                     <h2 data-i18n="partnersTag"
@@ -454,7 +458,7 @@
             </div>
 
             <!-- Logos staggered layout -->
-            <div class="relative w-full overflow-visible py-16" id="partners-grid-container">
+            <div class="relative w-full overflow-visible py-16 reveal" style="transition-delay: 200ms;" id="partners-grid-container">
                 <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-x-2 gap-y-12 items-center justify-items-center relative z-10 w-full"
                     id="partners-grid">
                     <!-- Injected via Script -->
@@ -525,6 +529,7 @@
     </footer>
 
     <!-- Translation Script -->
+    <script src="translations.js"></script>
     <script src="scripts.js"></script>
 </body>
 
