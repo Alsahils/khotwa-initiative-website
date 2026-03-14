@@ -37,12 +37,21 @@
     class="bg-gray-50 text-gray-800 antialiased selection:bg-brand selection:text-white transition-colors duration-300">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl bg-white/80 backdrop-blur-xl z-50 rounded-[2rem] shadow-lg shadow-brand/5 border border-white/50 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]">
+    <nav id="navbar"
+        class="fixed top-4 left-1/2 -translate-x-1/2 w-[98%] max-w-[1400px] bg-white/80 backdrop-blur-xl z-50 rounded-[2rem] shadow-lg shadow-brand/5 border border-white/50 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]">
         <div class="px-6 md:px-8">
-            <div class="flex justify-between items-center py-2 relative">
-                
-                <!-- Left Links -->
-                <div class="hidden md:flex gap-6 items-center flex-1">
+            <div class="flex justify-between items-center py-1 relative">
+
+                <!-- Logo (Left in LTR, Right in RTL) -->
+                <div class="flex-shrink-0 flex items-center justify-start cursor-pointer mx-2 md:mx-4 flex-1 z-[60]">
+                    <a href="#home">
+                        <img src="./image/khotwa-logo.png" alt="Khotwa Logo"
+                            class="h-16 md:h-24 w-auto object-contain transition-all mix-blend-multiply drop-shadow-sm hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Center Links -->
+                <div class="hidden md:flex gap-10 lg:gap-14 items-center justify-center flex-1">
                     <a href="#home" data-i18n="navHome"
                         class="text-gray-600 hover:text-brand font-semibold transition-colors">Home</a>
                     <a href="#about" data-i18n="navAbout"
@@ -53,15 +62,7 @@
                         class="text-gray-600 hover:text-brand font-semibold transition-colors">Partners</a>
                 </div>
 
-                <!-- Center Logo -->
-                <div class="flex-shrink-0 flex items-center justify-center cursor-pointer mx-2 md:mx-4 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[60]">
-                    <a href="#home">
-                        <img src="./image/khotwa-logo.jpeg" alt="Khotwa Logo"
-                            class="h-10 md:h-14 w-auto object-contain transition-all mix-blend-multiply drop-shadow-sm hover:scale-105">
-                    </a>
-                </div>
-
-                <!-- Right Actions -->
+                <!-- Actions (Right in LTR, Left in RTL) -->
                 <div class="hidden md:flex items-center gap-4 flex-1 justify-end">
                     <!-- Language Toggle Desktop -->
                     <button onclick="toggleLanguage()"
@@ -91,18 +92,24 @@
         </div>
 
         <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 border-t border-gray-100 flex-col gap-4 text-center">
+        <div id="mobile-menu"
+            class="hidden md:hidden px-6 pb-6 pt-2 border-t border-gray-100 flex-col gap-4 text-center">
             <a href="#home" data-i18n="navHome"
-                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">Home</a>
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg"
+                onclick="toggleMobileMenu()">Home</a>
             <a href="#about" data-i18n="navAbout"
-                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">About Us</a>
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg"
+                onclick="toggleMobileMenu()">About Us</a>
             <a href="#goals" data-i18n="navGoals"
-                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">Goals</a>
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg"
+                onclick="toggleMobileMenu()">Goals</a>
             <a href="#partners" data-i18n="navPartners"
-                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">Partners</a>
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg"
+                onclick="toggleMobileMenu()">Partners</a>
             <div class="mt-2 pt-4 border-t border-gray-50 flex justify-center">
                 <a href="register.html" data-i18n="navRegister"
-                    class="bg-brand text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-light transition duration-300 shadow-md inline-block w-full max-w-xs" onclick="toggleMobileMenu()">Register Now</a>
+                    class="bg-brand text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-light transition duration-300 shadow-md inline-block w-full max-w-xs"
+                    onclick="toggleMobileMenu()">Register Now</a>
             </div>
         </div>
     </nav>
@@ -166,7 +173,8 @@
                                 <i data-lucide="users" class="w-7 h-7"></i>
                             </div>
                             <div data-i18n="stat1Num"
-                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2">+200</div>
+                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 count-up">+200
+                            </div>
                             <div data-i18n="stat1Label"
                                 class="text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest">
                                 Applicants</div>
@@ -178,7 +186,8 @@
                                 <i data-lucide="user-check" class="w-7 h-7"></i>
                             </div>
                             <div data-i18n="stat2Num"
-                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2">+22</div>
+                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 count-up">+22
+                            </div>
                             <div data-i18n="stat2Label"
                                 class="text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest">
                                 Participating Students</div>
@@ -190,7 +199,8 @@
                                 <i data-lucide="building-2" class="w-7 h-7"></i>
                             </div>
                             <div data-i18n="stat3Num"
-                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2">+7</div>
+                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 count-up">+7
+                            </div>
                             <div data-i18n="stat3Label"
                                 class="text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest">Partner
                                 Companies</div>
@@ -202,7 +212,8 @@
                                 <i data-lucide="clock" class="w-7 h-7"></i>
                             </div>
                             <div data-i18n="stat4Num"
-                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2">+600</div>
+                                class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 count-up">+600
+                            </div>
                             <div data-i18n="stat4Label"
                                 class="text-sm md:text-base font-bold text-gray-500 uppercase tracking-widest">Training
                                 Hours</div>
@@ -292,8 +303,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-20 text-start relative z-10">
                 <!-- Goal 1 -->
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 100ms;">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal"
+                    style="transition-delay: 100ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="handshake" class="w-7 h-7"></i>
                     </div>
@@ -305,8 +316,8 @@
                 </div>
 
                 <!-- Goal 2 -->
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 200ms;">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal"
+                    style="transition-delay: 200ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="briefcase" class="w-7 h-7"></i>
                     </div>
@@ -318,8 +329,8 @@
                 </div>
 
                 <!-- Goal 3 -->
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 300ms;">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal"
+                    style="transition-delay: 300ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="lightbulb" class="w-7 h-7"></i>
                     </div>
@@ -330,8 +341,8 @@
                 </div>
 
                 <!-- Goal 4 -->
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 400ms;">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal"
+                    style="transition-delay: 400ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="compass" class="w-7 h-7"></i>
                     </div>
@@ -342,8 +353,8 @@
                 </div>
 
                 <!-- Goal 5 -->
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 500ms;">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal"
+                    style="transition-delay: 500ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="users" class="w-7 h-7"></i>
                     </div>
@@ -353,8 +364,8 @@
                 </div>
 
                 <!-- Goal 6 -->
-                <div
-                    class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal" style="transition-delay: 600ms;">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/20 transition duration-300 reveal"
+                    style="transition-delay: 600ms;">
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-6">
                         <i data-lucide="graduation-cap" class="w-7 h-7"></i>
                     </div>
@@ -387,8 +398,8 @@
 
             <div class="grid md:grid-cols-2 gap-8 lg:gap-12 text-start">
                 <!-- Story 1 -->
-                <div
-                    class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500 reveal" style="transition-delay: 150ms;">
+                <div class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500 reveal"
+                    style="transition-delay: 150ms;">
                     <div class="absolute top-10 end-10 text-brand/10 group-hover:text-brand/20 transition duration-300">
                         <i data-lucide="quote" class="w-20 h-20 transform rotate-180 rtl:rotate-0"></i>
                     </div>
@@ -416,8 +427,8 @@
                 </div>
 
                 <!-- Story 2 -->
-                <div
-                    class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500 reveal" style="transition-delay: 300ms;">
+                <div class="bg-white p-10 lg:p-12 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 relative group hover:-translate-y-2 transition duration-500 reveal"
+                    style="transition-delay: 300ms;">
                     <div class="absolute top-10 end-10 text-brand/10 group-hover:text-brand/20 transition duration-300">
                         <i data-lucide="quote" class="w-20 h-20 transform rotate-180 rtl:rotate-0"></i>
                     </div>
@@ -475,7 +486,8 @@
             </div>
 
             <!-- Logos staggered layout -->
-            <div class="relative w-full overflow-visible py-16 reveal" style="transition-delay: 200ms;" id="partners-grid-container">
+            <div class="relative w-full overflow-visible py-16 reveal" style="transition-delay: 200ms;"
+                id="partners-grid-container">
                 <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-x-2 gap-y-12 items-center justify-items-center relative z-10 w-full"
                     id="partners-grid">
                     <!-- Injected via Script -->
@@ -490,7 +502,7 @@
             <div class="grid md:grid-cols-12 gap-12 lg:gap-8 mb-16">
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="./image/khotwa-logo.jpeg" alt="Khotwa Logo"
+                        <img src="./image/khotwa-logo.png" alt="Khotwa Logo"
                             class="h-20 lg:h-28 w-auto object-contain bg-white rounded-xl p-2 shadow-sm transition-all">
                         <span data-i18n="logoTextFooter"
                             class="font-extrabold text-3xl tracking-tight hidden">Khotwa</span>

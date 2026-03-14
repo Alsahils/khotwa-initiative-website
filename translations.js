@@ -61,7 +61,7 @@ const translations = {
         footerPrivacy: "Privacy Policy",
         footerTerms: "Terms of Service",
         regUnavailableTitle: "Registration is Currently Closed",
-        regUnavailableDesc: "Thank you for your interest in the Khotwa Initiative. Our registration period has ended for this cohort. Please check back later or follow our social media for updates on the next intake!",
+        regUnavailableDesc: "Thank you for your interest, the registration isn't open right now. Please wait until we announce.",
         goBackHome: "Return to Home"
     },
     ar: {
@@ -126,7 +126,7 @@ const translations = {
         footerPrivacy: "سياسة الخصوصية",
         footerTerms: "شروط الخدمة",
         regUnavailableTitle: "التسجيل مغلق حالياً",
-        regUnavailableDesc: "شكراً لاهتمامك بمبادرة خطوة. فترة التسجيل قد انتهت لهذه النسخة. يرجى التحقق لاحقاً أو متابعة حساباتنا على وسائل التواصل الاجتماعي لمعرفة موعد النسخة القادمة!",
+        regUnavailableDesc: "شكراً لاهتمامك، التسجيل غير متاح في الوقت الحالي. يرجى الانتظار حتى نعلن عن فتح باب التسجيل.",
         goBackHome: "العودة للرئيسية"
     }
 };
