@@ -73,6 +73,22 @@ function toggleLanguage() {
     setLanguage(currentLang === 'en' ? 'ar' : 'en');
 }
 
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    if (menu) {
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        
+        if (menuIcon && closeIcon) {
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+    }
+}
+
 // Initialize Lucide icons & UI elements on load
 document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang);

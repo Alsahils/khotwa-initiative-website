@@ -82,10 +82,27 @@
                         <i data-lucide="globe" class="w-4 h-4"></i>
                         <span id="lang-toggle-text-mobile" class="text-sm">عربي</span>
                     </button>
-                    <button class="text-gray-600 hover:text-brand focus:outline-none">
-                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-brand focus:outline-none">
+                        <i id="menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                        <i id="close-icon" data-lucide="x" class="h-6 w-6 hidden"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 border-t border-gray-100 flex-col gap-4 text-center">
+            <a href="#home" data-i18n="navHome"
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">Home</a>
+            <a href="#about" data-i18n="navAbout"
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">About Us</a>
+            <a href="#goals" data-i18n="navGoals"
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">Goals</a>
+            <a href="#partners" data-i18n="navPartners"
+                class="block text-gray-600 hover:text-brand font-semibold transition-colors text-lg" onclick="toggleMobileMenu()">Partners</a>
+            <div class="mt-2 pt-4 border-t border-gray-50 flex justify-center">
+                <a href="register.html" data-i18n="navRegister"
+                    class="bg-brand text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-light transition duration-300 shadow-md inline-block w-full max-w-xs" onclick="toggleMobileMenu()">Register Now</a>
             </div>
         </div>
     </nav>
