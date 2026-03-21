@@ -1,92 +1,170 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
-
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Unavailable | Khotwa Initiative</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>التسجيل | مبادرة خطوة</title>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts for English (Inter) and Arabic (Cairo) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            DEFAULT: '#800020',
-                            light: '#a31a3f',
-                            dark: '#5a0014'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Custom Styles -->
-    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Choices.js Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link href="register.css" rel="stylesheet">
 </head>
-
-<body
-    class="bg-gray-50 text-gray-800 antialiased selection:bg-brand selection:text-white transition-colors duration-300 min-h-screen flex flex-col items-center justify-center">
-
-    <main class="w-full max-w-md mx-auto p-6 relative z-10">
-        <div class="bg-white rounded-[2rem] shadow-2xl shadow-brand/10 p-8 md:p-12 text-center border border-gray-100">
-            <!-- Logo area -->
-            <div class="flex justify-center mb-8">
-                <a href="index.html" class="inline-block hover:scale-105 transition-transform duration-300">
-                    <img src="./image/khotwa-logo.png" alt="Khotwa Logo" class="h-24 w-auto object-contain">
-                </a>
-            </div>
-
-            <!-- Icon -->
-            <div
-                class="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand/5 text-brand mx-auto">
-                <i data-lucide="clock" class="w-10 h-10"></i>
-            </div>
-
-            <!-- Content -->
-            <h1 data-i18n="regUnavailableTitle" class="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
-                Registration is Currently Closed</h1>
-            <p data-i18n="regUnavailableDesc" class="text-gray-500 text-lg mb-8 leading-relaxed">
-                Thank you for your interest in the Khotwa Initiative. Our registration period has ended for this cohort.
-                Please check back later or follow our social media for updates on the next intake!
-            </p>
-
-            <!-- Back Button -->
-            <a href="index.html"
-                class="inline-flex items-center justify-center gap-2 bg-brand text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-light transition duration-300 shadow-xl shadow-brand/30 transform hover:-translate-y-1 w-full focus:ring-4 focus:ring-brand/50">
-                <i data-lucide="arrow-left" class="w-5 h-5 rtl:rotate-180"></i>
-                <span data-i18n="goBackHome">Return to Home</span>
+<body>
+    <div class="animated-bg"></div>
+    <div class="app-container relative z-10">
+        <!-- Header -->
+        <header class="header">
+            <a href="index.html" class="logo-link">
+                <img src="./image/khotwa-logo.png" alt="Khotwa Logo" class="logo">
             </a>
-        </div>
-    </main>
+            <button id="lang-toggle" class="btn-lang" type="button">English</button>
+        </header>
 
-    <!-- Decorative background elements -->
-    <div
-        class="absolute top-0 end-0 -z-10 w-2/3 h-full bg-brand/5 rounded-bl-[100px] rtl:rounded-bl-none rtl:rounded-br-[100px] opacity-70 blur-3xl pointer-events-none">
-    </div>
-    <div
-        class="absolute bottom-0 start-0 -z-10 w-1/3 h-1/2 bg-brand/10 rounded-tr-[100px] rtl:rounded-tr-none rtl:rounded-tl-[100px] opacity-60 blur-3xl pointer-events-none">
+        <main class="main-content">
+            <!-- Closed Message Container (Hidden by default or toggled via JS) -->
+            <div id="closed-container" class="card-container hidden">
+                <div class="closed-icon">
+                    <i data-lucide="lock" class="icon-large"></i>
+                </div>
+                <h1 data-i18n="regUnavailableTitle">التسجيل مغلق حالياً</h1>
+                <p data-i18n="regUnavailableDesc">شكراً لاهتمامك، التسجيل غير متاح في الوقت الحالي. يرجى الانتظار حتى نعلن عن فتح باب التسجيل.</p>
+                <a href="index.html" class="btn btn-secondary" data-i18n="goBackHome">العودة للرئيسية</a>
+            </div>
+
+            <!-- Success Message Container -->
+            <div id="success-container" class="card-container hidden">
+                <div class="success-icon">
+                    <i data-lucide="check-circle" class="icon-large" style="width: 48px; height: 48px;"></i>
+                </div>
+                <h1 data-i18n="regSuccessTitle">تم التسجيل بنجاح!</h1>
+                <p data-i18n="regSuccessDesc" style="margin-bottom: 2rem;">شكراً لتسجيلك في مبادرة خطوة. سنتواصل معك قريباً.</p>
+                <a href="index.html" class="btn btn-primary" data-i18n="regReturnHome">العودة للرئيسية</a>
+            </div>
+
+            <!-- Registration Form Container -->
+            <div id="form-container" class="card-container hidden">
+                <!-- Progress Bar -->
+                <div class="progress-wrapper">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="step-word">الخطوة</span> <span id="current-step-text">1</span> / 6
+                    </div>
+                </div>
+
+                <form id="registration-form" class="registration-form" onsubmit="return false;">
+                    
+                    <!-- Step 1: Name -->
+                    <div class="step-card active" id="step-1">
+                        <h2 data-i18n="regStep1Title">البيانات الشخصية</h2>
+                        <p class="subtitle" data-i18n="regStep1Desc">للبدء، يرجى إدخال اسمك الكامل.</p>
+                        
+                        <div class="input-group">
+                            <label for="fullNameAr" data-i18n="regFullNameAr">الاسم الكامل (بالعربية)</label>
+                            <input type="text" id="fullNameAr" name="fullNameAr" placeholder="مثال: عبدالله محمد" data-i18n-placeholder="regFullNameArPlaceholder" pattern="^[\u0600-\u06FF\s]+$" title="الرجاء إدخال الاسم باللغة العربية فقط" required>
+                        </div>
+                        
+                        <div class="input-group mt-4" style="margin-top: 1.5rem;">
+                            <label for="fullNameEn" data-i18n="regFullNameEn">الاسم الكامل (بالإنجليزية)</label>
+                            <input type="text" id="fullNameEn" name="fullNameEn" placeholder="e.g. Abdullah Mohammed" data-i18n-placeholder="regFullNameEnPlaceholder" pattern="^[a-zA-Z\s]+$" title="Please use English characters only" required>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: University ID -->
+                    <div class="step-card" id="step-2">
+                        <h2 data-i18n="regStep2Title">المعلومات الجامعية</h2>
+                        <p class="subtitle" data-i18n="regStep2Desc">يرجى إدخال رقمك الجامعي.</p>
+                        <div class="input-group">
+                            <label for="uniId" data-i18n="regUniId">الرقم الجامعي</label>
+                            <input type="text" id="uniId" name="uniId" placeholder="مثال: 439000000" data-i18n-placeholder="regUniIdPlaceholder" pattern="^4[0-9]{8}$" title="يجب أن يتكون من 9 أرقام ويبدأ برقم 4 (مثال: 4XXXXXXXX)" required>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Birth Date -->
+                    <div class="step-card" id="step-3">
+                        <h2 data-i18n="regStep3Title">تاريخ الميلاد</h2>
+                        <p class="subtitle" data-i18n="regStep3Desc">متى ولدت؟</p>
+                        <div class="input-group">
+                            <label for="birthDate" data-i18n="regBirthDate">تاريخ الميلاد</label>
+                            <input type="date" id="birthDate" name="birthDate" required>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Gender -->
+                    <div class="step-card" id="step-4">
+                        <h2 data-i18n="regStep4Title">الجنس</h2>
+                        <p class="subtitle" data-i18n="regStep4Desc">الرجاء تحديد الجنس.</p>
+                        <div class="input-group">
+                            <label data-i18n="regGender">الجنس</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" required>
+                                    <span class="custom-radio"></span>
+                                    <span data-i18n="regMale">ذكر</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female" required>
+                                    <span class="custom-radio"></span>
+                                    <span data-i18n="regFemale">أنثى</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Major -->
+                    <div class="step-card" id="step-5">
+                        <h2 data-i18n="regStep5Title">التخصص الدراسي</h2>
+                        <p class="subtitle" data-i18n="regStep5Desc">ما هو تخصصك الحالي؟</p>
+                        <div class="input-group" style="position: relative; z-index: 50;">
+                            <label for="major" data-i18n="regMajor">التخصص</label>
+                            <div class="select-wrapper-choices" dir="auto">
+                                <select id="major" name="major" required>
+                                    <!-- Options injected via JS natively using Choices.js -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: CV Upload -->
+                    <div class="step-card" id="step-6">
+                        <h2 data-i18n="regStep6Title">رفع السيرة الذاتية</h2>
+                        <p class="subtitle" data-i18n="regStep6Desc">يرجى رفع أحدث سيرة ذاتية لديك.</p>
+                        <div class="input-group file-upload-group">
+                            <div class="file-drop-area" id="file-drop-area">
+                                <i data-lucide="upload-cloud" class="upload-icon"></i>
+                                <span class="file-msg" data-i18n="regFileMsg">اختر ملفاً أو اسحبه هنا</span>
+                                <span class="file-formats" data-i18n="regFileFormat">الصيغ المقبولة: pdf, jpg, png</span>
+                                <input type="file" id="cvUpload" name="cvUpload" accept=".pdf, image/jpeg, image/png" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-navigation">
+                        <button type="button" id="btn-prev" class="btn btn-outline hidden" data-i18n="regBtnPrev">السابق</button>
+                        <div class="spacer"></div>
+                        <button type="button" id="btn-next" class="btn btn-primary" data-i18n="regBtnNext">التالي</button>
+                        <button type="submit" id="btn-submit" class="btn btn-primary hidden" data-i18n="regBtnSubmit">إرسال</button>
+                    </div>
+                </form>
+            </div>
+        </main>
     </div>
 
+    <!-- Script references -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="translations.js"></script>
+    <script src="register.js"></script>
     <script>
-        // Use basic multi-language from local storage if available, default to ar
-        const savedLang = localStorage.getItem('khotwa_lang') || 'ar';
-        document.documentElement.setAttribute('lang', savedLang);
-        document.documentElement.setAttribute('dir', savedLang === 'ar' ? 'rtl' : 'ltr');
-
-        // Initialize lucide icons
         lucide.createIcons();
     </script>
-    <script src="translations.js"></script>
-    <script src="scripts.js"></script>
 </body>
-
 </html>
