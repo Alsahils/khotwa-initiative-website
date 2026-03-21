@@ -74,7 +74,7 @@ export default function Partners() {
                 >
                   <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition duration-300" />
                   <Image
-                    src={`/image/khotwa-partners/${logo}`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH}/image/khotwa-partners/${logo}`}
                     alt="Partner"
                     width={120}
                     height={120}
