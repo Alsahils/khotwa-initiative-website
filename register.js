@@ -144,7 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 })),
                 'value', 'label', true
             );
-        } catch (e) {}
+        } catch (e) {
+            console.warn('Failed to set choices:', e);
+        }
     }
 
     function getCurrentGender() {
@@ -260,7 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
     // Validation logic
     function validateCurrentStep() {
         const currentStepDiv = steps[currentStepIndex];
@@ -312,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentStepIndex === steps.length - 1 && validateCurrentStep()) {
 
             // UI State change: Disable button & show uploading text
-            const btnTextElement = currentLang === 'ar' ? 'إرسال' : 'Submit';
             const originalBtnText = btnSubmit.textContent;
             btnSubmit.textContent = (currentLang === 'ar') ? 'جاري الرفع...' : 'Uploading...';
             btnSubmit.disabled = true;
