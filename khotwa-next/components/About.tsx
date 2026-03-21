@@ -30,7 +30,7 @@ export default function About() {
             <div className="absolute -inset-4 bg-brand/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-700" />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[6px] border-white hover:scale-[1.01] transition duration-500">
               <Image
-                src="/image/1.jpeg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/image/1.jpeg`}
                 alt="Team meeting"
                 width={800}
                 height={600}

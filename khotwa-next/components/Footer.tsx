@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-6">
               <Image
-                src="/image/khotwa-logo.png"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/image/khotwa-logo.png`}
                 alt="Khotwa Logo"
                 width={112}
                 height={112}

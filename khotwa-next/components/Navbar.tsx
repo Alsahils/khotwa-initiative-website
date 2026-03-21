@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Globe, Menu, X } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
+import { BASE_PATH } from "@/lib/base-path";
 
 export default function Navbar() {
   const { lang, t, toggleLang } = useLanguage();
@@ -42,7 +43,7 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center justify-start cursor-pointer mx-2 md:mx-4 flex-1 z-[60]">
             <Link href="#home">
               <Image
-                src="/image/khotwa-logo.png"
+                src={`${BASE_PATH}/image/khotwa-logo.png`}
                 alt="Khotwa Logo"
                 width={96}
                 height={96}

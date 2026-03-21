@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Users, UserCheck, Building2, Clock, ArrowRight } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
+import { BASE_PATH } from "@/lib/base-path";
 
 function CountUp({
   target,
@@ -115,7 +116,7 @@ export default function Hero() {
           <div ref={useReveal} className="lg:col-span-6 mt-16 lg:mt-0 relative reveal" style={{ transitionDelay: "200ms" }}>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand/20 border-[6px] border-white transform lg:-rotate-2 hover:rotate-0 transition duration-500 hover:scale-[1.02]">
               <Image
-                src="/image/2.jpeg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/image/2.jpeg`}
                 alt="Students in an office"
                 width={800}
                 height={600}
