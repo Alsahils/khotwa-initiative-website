@@ -33,6 +33,13 @@ jobs:
         working-directory: khotwa-next
         run: npm ci
 
+      - name: Setup Supabase resources (bucket + table)
+        working-directory: khotwa-next
+        if: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/setup-supabase.mjs
+
       - name: Build
         working-directory: khotwa-next
         run: npm run build

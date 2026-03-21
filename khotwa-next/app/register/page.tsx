@@ -157,7 +157,7 @@ export default function RegisterPage() {
     try {
       if (!cvFile) throw new Error("CV file is required.");
 
-      // 1. Upload CV
+      // 1. Upload CV to Supabase Storage
       const safeFileName = cvFile.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
       const uniqueFileName = `${Date.now()}_${safeFileName}`;
 
@@ -168,7 +168,23 @@ export default function RegisterPage() {
           upsert: false,
         });
 
-      if (uploadError) throw uploadError;
+      if (uploadError) {
+        // Provide a descriptive error when the storage bucket is missing so
+        // that developers know exactly what needs to be fixed.
+        const isBucketMissing =
+          uploadError.message?.toLowerCase().includes("bucket not found") ||
+          (uploadError as { statusCode?: string }).statusCode === "404";
+
+        if (isBucketMissing) {
+          throw new Error(
+            lang === "ar"
+              ? "مساحة التخزين غير مهيأة. يرجى التواصل مع الدعم الفني."
+              : "Storage is not configured yet. Please run `npm run setup:supabase` to initialize the Supabase storage bucket, then re-deploy."
+          );
+        }
+
+        throw uploadError;
+      }
 
       // 2. Get public URL
       const { data: publicUrlData } = supabase.storage
@@ -177,7 +193,7 @@ export default function RegisterPage() {
 
       const cv_url = publicUrlData.publicUrl;
 
-      // 3. Insert registration
+      // 3. Insert registration record
       const { error: dbError } = await supabase.from("registrations").insert([
         {
           name_ar: fullNameAr,
@@ -201,7 +217,7 @@ export default function RegisterPage() {
           ? "حدث خطأ أثناء التسجيل. يرجى المحاولة مرة أخرى."
           : "An error occurred during registration. Please try again.";
       const devMsg = error instanceof Error ? error.message : JSON.stringify(error);
-      alert(`${msg}\n\n[${devMsg}]`);
+      alert(`${msg}\n\n${devMsg}`);
     } finally {
       setIsSubmitting(false);
     }
