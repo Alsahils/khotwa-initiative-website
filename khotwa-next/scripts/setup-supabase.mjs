@@ -51,7 +51,7 @@ if (!SERVICE_ROLE_KEY) {
   process.exit(1);
 }
 
-const BUCKET_NAME = "cv_uploads";
+const BUCKET_NAME = "cv-uploads";
 
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   auth: { persistSession: false },
